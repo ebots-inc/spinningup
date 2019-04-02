@@ -26,8 +26,11 @@ setup(
         'psutil',
         'scipy',
         'seaborn==0.8.1',
-        'tensorflow>=1.8.0',
-        'tqdm'
+        'tensorflow==1.13.1',
+        'tqdm',
+        'PyOpenGL',
+        'box2d-py>=2.3.5',
+        'atari_py>=0.1.4'
     ],
     description="Teaching tools for introducing people to deep RL.",
     author="Joshua Achiam",
