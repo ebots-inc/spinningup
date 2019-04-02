@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     ffmpeg \
     freeglut3-dev xvfb \
+    pip3 \
  && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=C.UTF-8
@@ -39,10 +40,6 @@ USER user
 # All users can use /home/user as their home directory
 ENV HOME=/home/user
 RUN chmod 777 /home/user
-
-RUN apt-get update && apt-get install -y \
-    pip3 \
-    && rm -rf /var/lib/apt/lists/*
 
 RUN \
     pip3 install jupyter && \
