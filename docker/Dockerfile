@@ -41,23 +41,20 @@ USER user
 ENV HOME=/home/user
 RUN chmod 777 /home/user
 
-RUN \
-    python3 -m pip install --upgrade pip
+ENV PATH="/home/user/.local/bin:${PATH}"
 
 RUN \
-    pip3 install jupyter && \
-    pip3 install box2d-py>=2.3.5 && \
-    pip3 install pybullet>=2.1.0 && \
-    pip3 install pytablewriter>=0.36.0 && \
-    pip3 install pyyaml
+    python3 -m pip install --user --upgrade pip && \
+    python3 -m pip install --user jupyter && \
+    python3 -m pip install --user box2d-py>=2.3.5 && \
+    python3 -m pip install --user pybullet>=2.1.0 && \
+    python3 -m pip install --user pytablewriter>=0.36.0 && \
+    python3 -m pip install --user pyyaml
 
 
 RUN \
     git clone https://github.com/ebots-inc/spinningup.git && \
     cd spinningup && \
-    pip3 install -e .
-
-RUN \
-    echo  PATH=$PATH:~/.local/bin >> ~/.bashrc
+    python3 -m pip install --user -e .
 
 CMD /bin/bash
