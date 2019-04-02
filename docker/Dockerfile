@@ -40,8 +40,11 @@ USER user
 ENV HOME=/home/user
 RUN chmod 777 /home/user
 
+RUN apt-get update && apt-get install -y \
+    pip3 \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN \
-    python3 -m pip install --upgrade pip && \
     pip3 install jupyter && \
     pip3 install box2d-py>=2.3.5 && \
     pip3 install pybullet>=2.1.0 && \
