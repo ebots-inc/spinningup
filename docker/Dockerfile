@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     cmake \
     zlib1g-dev \
     ffmpeg \
-    freeglut3-dev xvfb \
+    freeglut3-dev \
+    xvfb \
  && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=C.UTF-8
@@ -41,9 +42,6 @@ ENV HOME=/home/user
 RUN chmod 777 /home/user
 
 
-RUN apt-get update && apt-get install -y \
-    pip3
-    
 RUN \
     pip3 install jupyter && \
     pip3 install box2d-py>=2.3.5 && \
