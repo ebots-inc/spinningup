@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     ffmpeg \
     freeglut3-dev \
     xvfb \
+    vim \
  && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=C.UTF-8
@@ -46,14 +47,14 @@ ENV PATH="/home/user/.local/bin:${PATH}"
 RUN \
     python3 -m pip install --user --upgrade pip && \
     python3 -m pip install --user jupyter && \
-    python3 -m pip install --user box2d-py>=2.3.5 && \
-    python3 -m pip install --user pybullet>=2.1.0 && \
-    python3 -m pip install --user pytablewriter>=0.36.0 && \
+    python3 -m pip install --user box2d-py && \
+    python3 -m pip install --user pybullet && \
+    python3 -m pip install --user pytablewriter && \
     python3 -m pip install --user pyyaml
 
 
 RUN \
-    git clone https://github.com/ebots-inc/spinningup.git && \
+    git clone https://github.com/ebots-inc/spinningup.git  && \
     cd spinningup && \
     python3 -m pip install --user -e .
 
