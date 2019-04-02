@@ -6,6 +6,10 @@ docker run --init -it --runtime=nvidia --name=spinningup -v $(pwd):/docker_ws  -
 docker exec -it kai/spinningup bash
 
 
-# to run trainer
+# to run jupyter notebook
 xvfb-run -s "-screen 0 1400x900x24" jupyter notebook --ip=0.0.0.0 --no-browser .
+
+# to train
+python -m spinup.run ppo --hid "[32,32]" --env LunarLander-v2 --exp_name installtest --gamma 0.999
+
 
