@@ -41,6 +41,8 @@ USER user
 ENV HOME=/home/user
 RUN chmod 777 /home/user
 
+RUN \
+    python3 -m pip install --upgrade pip
 
 RUN \
     pip3 install jupyter && \
@@ -54,5 +56,8 @@ RUN \
     git clone https://github.com/ebots-inc/spinningup.git && \
     cd spinningup && \
     pip3 install -e .
+
+RUN \
+    echo  PATH=$PATH:~/.local/bin >> ~/.bashrc
 
 CMD /bin/bash

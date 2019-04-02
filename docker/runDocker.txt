@@ -1,5 +1,7 @@
 
+docker build . -t kai/spinningup
 
+docker run --init -it --runtime=nvidia --name=spinningup -v $(pwd):/docker_ws  -p 8891:8888 -p 6008:6006 kai/spinningup  bash
 
 docker exec -it kai/spinningup bash
 
@@ -7,4 +9,3 @@ docker exec -it kai/spinningup bash
 # to run trainer
 xvfb-run -s "-screen 0 1400x900x24" jupyter notebook --ip=0.0.0.0 --allow-root --no-browser .
 
-docker run --init -it --runtime=nvidia --name=spinningup -v $(pwd):/root/code  -p 8891:8888 -p 6008:6006 kai/spinningup  bash
