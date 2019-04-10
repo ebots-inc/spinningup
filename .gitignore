@@ -7,4 +7,5 @@ data/
 .idea/
 .vscode/
 **/.ipynb_checkpoints/
+notebook/*.h5
 
