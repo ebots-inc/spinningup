@@ -59,9 +59,4 @@ RUN \
     cd spinningup && \
     python3 -m pip install --user -e .
 
-RUN \
-    git clone https://github.com/benelot/pybullet-gym.git && \
-    cd pybullet-gym && \
-    python3 -m pip install --user -e .
-
 CMD /bin/bash
